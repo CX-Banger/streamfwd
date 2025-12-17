@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Muzikly - ConnexionBanger</title>
+  
+    <!-- Logo de l'onglet (favicon) -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/CX-Banger/cx-muzik/0c07a92d0298865c5d0b4c06eb6c27be1c2ac8db/assets/muzikly-logo-noir.svg" />
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="src/style.css" />
+  <link rel="stylesheet" href="src/upcoming.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar (desktop) -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-mark"><svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Arrière-plan vert avec coins arrondis -->
+  <rect x="10" y="10" width="180" height="180" rx="40" ry="40" fill="#4CAF50"/>
+  
+  <!-- Ombre subtile -->
+  <rect x="12" y="12" width="180" height="180" rx="40" ry="40" fill="rgba(0,0,0,0.1)"/>
+  <rect x="10" y="10" width="180" height="180" rx="40" ry="40" fill="#4CAF50"/>
+  
+  <!-- Icône spirale centrée et redimensionnée -->
+  <g transform="translate(100, 100) scale(7)">
+    <g transform="translate(-12, -12)">
+      <path fill="none" d="M0 0h24v24H0z"/>
+      <path fill="white" d="M10.421 11.375c-.294 1.028.012 2.064.784 2.653 1.061.81 2.565.3 2.874-.995.08-.337.103-.722.027-1.056-.23-1.001-.52-1.988-.792-2.996-1.33.154-2.543 1.172-2.893 2.394zm5.548-.287c.273 1.012.285 2.017-.127 3-1.128 2.69-4.721 3.14-6.573.826-1.302-1.627-1.28-3.961.06-5.734.78-1.032 1.804-1.707 3.048-2.054l.379-.104c-.084-.415-.188-.816-.243-1.224-.176-1.317.512-2.503 1.744-3.04 1.226-.535 2.708-.216 3.53.76.406.479.395 1.08-.025 1.464-.412.377-.996.346-1.435-.09-.247-.246-.51-.44-.877-.436-.525.006-.987.418-.945.937.037.468.173.93.3 1.386.022.078.216.135.338.153 1.334.197 2.504.731 3.472 1.676 2.558 2.493 2.861 6.531.672 9.44-1.529 2.032-3.61 3.168-6.127 3.409-4.621.44-8.664-2.53-9.7-7.058C2.515 10.255 4.84 5.831 8.795 4.25c.586-.234 1.143-.031 1.371.498.232.537-.019 1.086-.61 1.35-2.368 1.06-3.817 2.855-4.215 5.424-.533 3.433 1.656 6.776 5 7.72 2.723.77 5.658-.166 7.308-2.33 1.586-2.08 1.4-5.099-.427-6.873a3.979 3.979 0 0 0-1.823-1.013c.198.716.389 1.388.57 2.062z"/>
+    </g>
+  </g>
+  
+  <!-- Reflet subtil pour l'effet glossy -->
+  <defs>
+    <linearGradient id="glossy" x1="0%" y1="0%" x2="0%" y2="50%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="180" height="90" rx="40" ry="40" fill="url(#glossy)"/>
+</svg></div>
+        <div class="logo-text">
+          <strong>Muzikly</strong>
+          <small>ConnexionBanger</small>
+        </div>
+      </div>
+      <nav class="nav-main">
+        <button class="nav-btn" data-page="home"><i class="fas fa-compass"></i> Découvrir</button>
+        <button class="nav-btn" data-page="playlists"><i class="fas fa-headphones"></i> Playlists</button>
+        <button class="nav-btn" data-page="liked"><i class="fas fa-heart"></i> Sons likés</button>
+        <button class="nav-btn" data-page="search"><i class="fas fa-search"></i> Recherche</button>
+        <button class="nav-btn" data-page="upcoming"><i class="fas fa-bolt"></i> Sorties</button>
+        <button class="nav-btn" onclick="window.location.href='https://cx-banger.github.io/vidtruck/'"><i class="fas fa-video"></i> Vidéos</button>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <header class="topbar">
+        <div class="search-inline">
+          <i class="fas fa-search"></i>
+          <input id="headerSearch" placeholder="Rechercher un son, artiste..." />
+        </div>
+        <div class="top-actions">
+          <!--  -->
+          <a href="https://github.com/CX-Banger" target="_blank" title="Github"><i class="fab fa-github"></i></a>
+          
+        </div>
+      </header>
+
+      <section class="pages">
+        <!-- Home -->
+        <section id="page-home" class="page active">
+          <div class="hero">
+            <div class="hero-art" id="heroArt" style="cursor: pointer;"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Discogs</title><path d="M1.7422 11.982c0-5.6682 4.61-10.2782 10.2758-10.2782 1.8238 0 3.5372.48 5.0251 1.3175l.8135-1.4879C16.1768.588 14.2474.036 12.1908.0024h-.1944C5.4091.0144.072 5.3107 0 11.886v.1152c.0072 3.4389 1.4567 6.5345 3.7748 8.7207l1.1855-1.2814c-1.9798-1.8743-3.218-4.526-3.218-7.4585zM20.362 3.4053l-1.1543 1.2406c1.903 1.867 3.0885 4.4636 3.0885 7.3361 0 5.6658-4.61 10.2758-10.2758 10.2758-1.783 0-3.4605-.456-4.922-1.2575l-.8542 1.5214c1.7086.9384 3.6692 1.4735 5.7546 1.4759C18.6245 23.9976 24 18.6246 24 11.9988c-.0048-3.3717-1.399-6.4146-3.638-8.5935zM1.963 11.982c0 2.8701 1.2119 5.4619 3.146 7.2953l1.1808-1.2767c-1.591-1.5166-2.587-3.6524-2.587-6.0186 0-4.586 3.7293-8.3152 8.3152-8.3152 1.483 0 2.875.3912 4.082 1.0751l.8351-1.5262C15.481 2.395 13.8034 1.927 12.018 1.927 6.4746 1.9246 1.963 6.4362 1.963 11.982zm18.3702 0c0 4.586-3.7293 8.3152-8.3152 8.3152-1.4327 0-2.7837-.3648-3.962-1.0055l-.852 1.5166c1.4303.7823 3.0718 1.2287 4.814 1.2287 5.5434 0 10.055-4.5116 10.055-10.055 0-2.8077-1.1567-5.3467-3.0165-7.1729l-1.183 1.2743c1.519 1.507 2.4597 3.5924 2.4597 5.8986zm-1.9486 0c0 3.5109-2.8558 6.3642-6.3642 6.3642a6.3286 6.3286 0 01-3.0069-.756l-.8471 1.507c1.147.624 2.4597.9768 3.854.9768 4.4636 0 8.0944-3.6308 8.0944-8.0944 0-2.239-.9143-4.2692-2.3902-5.7378l-1.1783 1.267c1.1351 1.152 1.8383 2.731 1.8383 4.4732zm-14.4586 0c0 2.3014.9671 4.382 2.515 5.8578l1.1734-1.2695c-1.207-1.159-1.9606-2.786-1.9606-4.5883 0-3.5108 2.8557-6.3642 6.3642-6.3642 1.1423 0 2.215.3048 3.1437.8352l.8303-1.5167c-1.1759-.6647-2.5317-1.0487-3.974-1.0487-4.4612 0-8.092 3.6308-8.092 8.0944zm12.5292 0c0 2.4502-1.987 4.4372-4.4372 4.4372a4.4192 4.4192 0 01-2.0614-.5088l-.8351 1.4879a6.1135 6.1135 0 002.8965.727c3.3885 0 6.1434-2.7548 6.1434-6.1433 0-1.6774-.6767-3.1989-1.7686-4.3076l-1.1615 1.2503c.7559.7967 1.2239 1.8718 1.2239 3.0573zm-10.5806 0c0 1.7374.7247 3.3069 1.8886 4.4252L8.92 15.1569l.0144.0144c-.8351-.8063-1.3559-1.9366-1.3559-3.1869 0-2.4502 1.9846-4.4372 4.4372-4.4372.8087 0 1.5646.2184 2.2174.5976l.8207-1.4975a6.097 6.097 0 00-3.0381-.8063c-3.3837-.0048-6.141 2.7525-6.141 6.141zm6.681 0c0 .2952-.2424.5351-.5376.5351-.2952 0-.5375-.24-.5375-.5351 0-.2976.24-.5375.5375-.5375.2952 0 .5375.24.5375.5375zm-3.9405 0c0-1.879 1.5239-3.4029 3.4005-3.4029 1.879 0 3.4005 1.5215 3.4005 3.4029 0 1.879-1.5239 3.4005-3.4005 3.4005S8.6151 13.861 8.6151 11.982zm.1488 0c.0048 1.7974 1.4567 3.2493 3.2517 3.2517 1.795 0 3.254-1.4567 3.254-3.2517-.0023-1.7974-1.4566-3.2517-3.254-3.254-1.795 0-3.2517 1.4566-3.2517 3.254Z"/></svg></div>
+            <div class="hero-meta">
+              <strong>À la une</strong>
+              <h2 id="featuredTitle">Kill My Flesh</h2>
+              <div class="chips">
+                <span class="chip">Eilynn</span>
+                <span class="chip">Elihem</span>
+              </div>
+            </div>
+            <div class="hero-platforms">
+              <div class="hero-platforms-label">Disponible sur</div>
+              <div class="hero-platforms-icons">
+                <a href="https://cx-banger.github.io/cx-muzik/" target="_blank" rel="noopener" title="Cx banger" class="platform-icon">
+                  <img src="https://raw.githubusercontent.com/CX-Banger/mt2/22d74974b03a71e9555daa54d6a9bf59da64b00a/cx-cloud-music-white-fill.svg" alt="NetEase Music" width="24" height="24">
+                <a href="https://open.spotify.com" target="_blank" rel="noopener" title="Spotify" class="platform-icon">
+                  <i class="fab fa-spotify"></i>
+                </a>
+                <a href="https://music.apple.com" target="_blank" rel="noopener" title="Apple Music" class="platform-icon">
+                  <i class="fab fa-apple"></i>
+                </a>
+                <a href="https://www.deezer.com" target="_blank" rel="noopener" title="Deezer" class="platform-icon">
+                  <i class="fab fa-deezer"></i>
+                </a>
+                <a href="https://music.youtube.com" target="_blank" rel="noopener" title="YouTube Music" class="platform-icon">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+</br> <!-- saut de ligne entre la une et les artistes -->
+          <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 14px;">Artistes</h3>
+          <div id="artistsGrid" class="grid artists-grid"></div>
+        </section>
+
+        <!-- Playlists -->
+        <section id="page-playlists" class="page">
+          <div class="page-head">
+            <h2>🎧 Tes playlists</h2>
+            <div>
+              <input id="newPlaylistName" placeholder="Nouvelle playlist..." />
+              <button id="createPlaylistBtn">Créer</button>
+            </div>
+          </div>
+          <div id="playlistList" class="playlists-list"></div>
+          <div id="playlistTracks" class="playlist-tracks"></div>
+        </section>
+
+        <!-- Liked -->
+        <section id="page-liked" class="page">
+          <h2 style="margin-bottom: 20px;">♡ Sons likés</h2>
+          <div class="tracks-table-header">
+            <div class="track-col-number">#</div>
+            <div class="track-col-title">Titre</div>
+            <div class="track-col-album">Artiste</div>
+            <div class="track-col-duration"><i class="far fa-clock"></i></div>
+          </div>
+          <div id="likedTracks" class="tracks-table-body"></div>
+        </section>
+
+        <!-- Search -->
+        <section id="page-search" class="page">
+          <h2>🔍 Recherche</h2>
+          <input id="searchInput" placeholder="Rechercher un son (min 2 lettres)..." />
+          <div id="searchResults" class="grid search-results"></div>
+        </section>
+
+        <!-- Upcoming -->
+        <section id="page-upcoming" class="page">
+          <h2>🔥 Sorties & À la une</h2>
+          <div id="upcoming" class="grid"></div>
+        </section>
+
+        <!-- Artist Page -->
+        <section id="page-artist" class="page">
+          <div class="artist-page-header">
+            <div class="artist-page-banner">
+              <div class="artist-page-info">
+                <span class="artist-page-label">Artiste</span>
+                <h1 id="artistPageName" class="artist-page-title"></h1>
+                <div id="artistPageBio" class="artist-page-bio"></div>
+              </div>
+            </div>
+            <div class="artist-page-actions">
+              <button id="artistPlayBtn" class="artist-play-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="artist-action-btn">
+                <i class="fas fa-ellipsis-h"></i>
+              </button>
+            </div>
+          </div>
+          <div class="artist-page-content">
+            <div class="artist-tracks-section">
+              <div class="tracks-table-header">
+                <div class="track-col-number">#</div>
+                <div class="track-col-title">Titre</div>
+                <div class="track-col-album">Album</div>
+                <div class="track-col-duration"><i class="far fa-clock"></i></div>
+              </div>
+              <div id="artistTracksList" class="tracks-table-body"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Videos Management Page -->
+        <section id="page-videos" class="page">
+          <h2 style="margin-bottom: 20px;">🎬 Gestion des Vidéos</h2>
+          <p style="margin-bottom: 30px; color: #999;">Associez une vidéo à chaque son. Les vidéos doivent être uploadées dans Supabase Storage dans le bucket 'videos'.</p>
+
+          <div id="videosManagement" class="videos-management">
+            <div id="artistsVideosAccordion" class="artists-videos-accordion"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- Bottom nav (mobile) -->
+    <nav class="bottom-nav mobile-only" id="bottomNav">
+      <button class="bt" data-page="home"><i class="fas fa-home"></i><small>Accueil</small></button>
+      <button class="bt" data-page="playlists"><i class="fas fa-list"></i><small>Playlists</small></button>
+      <button class="bt" data-page="search"><i class="fas fa-search"></i><small>Recherche</small></button>
+      <button class="bt" data-page="upcoming"><i class="fas fa-bolt"></i><small>Sorties</small></button>
+    </nav>
+
+    <!-- Mini Player (collapsed state) -->
+    <div class="mini-player" id="miniPlayer">
+      <div class="mini-player-content" id="miniPlayerContent">
+        <button id="miniPlayPause" class="mini-play-btn"><i class="fas fa-pause"></i></button>
+        <img id="miniPlayerThumb" class="mini-player-thumb" src="" alt="cover" />
+        <div class="mini-player-info">
+          <div id="miniPlayerTitle" class="mini-player-title">—</div>
+          <div id="miniPlayerArtist" class="mini-player-artist">—</div>
+        </div>
+        <div class="mini-player-actions">
+          <button id="miniLikeBtn" class="mini-like-btn"><i class="far fa-heart"></i></button>
+          <button id="miniNextBtn" class="mini-next-btn"><i class="fas fa-step-forward"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Player (expanded state) -->
+    <div class="full-player" id="fullPlayer">
+      <div class="full-player-scrollable" id="fullPlayerScrollable">
+        <div class="full-player-header">
+          <button id="closeFullPlayer" class="close-player-btn">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <span class="player-header-title" id="headerTitleSticky">En lecture</span>
+          <button id="playerMenuBtn" class="player-menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+        </div>
+
+        <div class="full-player-cover-wrapper" id="fullPlayerCoverWrapper">
+          <img id="fullPlayerCover" class="full-player-cover" src="" alt="cover" />
+          <video id="fullPlayerCanvas" class="full-player-canvas" muted loop playsinline preload="none"></video>
+
+          <div class="full-player-info-overlay" id="fullPlayerInfoFixed">
+            <div class="full-player-meta">
+              <h2 id="fullPlayerTitle" class="full-player-song-title">—</h2>
+              <p id="fullPlayerArtist" class="full-player-artist-name">—</p>
+            </div>
+
+            <div class="full-player-controls">
+              <div class="progress-section">
+                <input id="fullProgress" type="range" min="0" max="100" value="0" class="full-progress-bar" />
+                <div class="progress-time">
+                  <span id="fullCurrentTime">0:00</span>
+                  <span id="fullDurationTime">0:00</span>
+                </div>
+              </div>
+
+              <div class="main-controls">
+                <button id="fullShuffleBtn" class="control-btn shuffle-btn">
+                  <i class="fas fa-random"></i>
+                </button>
+                <button id="fullPrevBtn" class="control-btn">
+                  <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="fullPlayPauseBtn" class="control-btn play-pause-main">
+                  <i class="fas fa-play"></i>
+                </button>
+                <button id="fullNextBtn" class="control-btn">
+                  <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="fullRepeatBtn" class="control-btn repeat-btn">
+                  <i class="fas fa-redo"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lyrics-preview" id="lyricsPreview">
+          <span class="lyrics-preview-text">Paroles</span>
+          <i class="fas fa-chevron-up"></i>
+        </div>
+
+        <div class="lyrics-section" id="lyricsSection">
+          <div class="lyrics-content" id="lyricsContent">
+            <p class="lyrics-placeholder">Les paroles ne sont pas encore disponibles pour ce titre.</p>
+          </div>
+        </div>
+      </div>
+      <audio id="audio"></audio>
+    </div>
+
+    <!-- Player Menu Panel -->
+    <div class="player-menu-panel" id="playerMenuPanel">
+      <div class="menu-panel-content">
+        <button class="menu-panel-close" id="menuPanelClose">
+          <i class="fas fa-times"></i>
+        </button>
+        <h3 class="menu-panel-title">Options</h3>
+        <div class="menu-panel-actions">
+          <button id="menuLikeBtn" class="menu-action-btn">
+            <i class="far fa-heart"></i>
+            <span>Ajouter aux favoris</span>
+          </button>
+          <button id="menuAddToPlaylistBtn" class="menu-action-btn">
+            <i class="fas fa-plus"></i>
+            <span>Ajouter à une playlist</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script type="module" src="src/script.js"></script>
+  <script type="module" src="src/player.js"></script>
+</body>
+</html>
