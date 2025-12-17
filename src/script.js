@@ -170,7 +170,7 @@ headerSearch.addEventListener('input', e=>{
 });
 
 /* ===== Badge URLs ===== */
-const BADGE_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/mt2/9dbac3ece6711aeb7e41c402c1748b35b92a471f/icons-badges';
+const BADGE_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/unordered_set/9dbac3ece6711aeb7e41c402c1748b35b92a471f/icons-badges';
 
 function getBadgesHTML(badges) {
   if (!badges || badges.length === 0) return '';
