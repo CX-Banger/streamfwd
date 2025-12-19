@@ -55,8 +55,8 @@ tracks: trackTitles[i].map((title, j) => {
 ## Hébergement des vidéos
 
 Tu peux héberger tes vidéos sur:
-- Supabase Storage (recommandé)
-- GitHub (si < 100MB)
+- Supabase Storage (recommandé si < 50MB)
+- GitHub `mais ne traite pas de fichiers .mp4`
 - Tout service d'hébergement qui permet les liens directs (Cloudflare R2, AWS S3, etc.)
 
 ### Exemple avec Supabase Storage:
