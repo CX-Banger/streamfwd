@@ -38,4 +38,8 @@ WHERE title = 'Summer Vibes' AND artist_name = 'Sara';
 
 UPDATE upcoming_releases 
 SET display_order = 5 
+WHERE title = 'Pas assez' AND artist_name = 'Raph';
+
+UPDATE upcoming_releases 
+SET display_order = 6 
 WHERE title = 'True (Official Audio)' AND artist_name = 'Elihem';
