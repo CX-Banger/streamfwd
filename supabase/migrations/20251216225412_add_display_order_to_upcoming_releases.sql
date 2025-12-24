@@ -35,3 +35,7 @@ WHERE title = 'À venir bientôt' AND artist_name = 'Eilynn';
 UPDATE upcoming_releases 
 SET display_order = 4 
 WHERE title = 'Summer Vibes' AND artist_name = 'Sara';
+
+UPDATE upcoming_releases 
+SET display_order = 5 
+WHERE title = 'True (Official Audio)' AND artist_name = 'Elihem';
