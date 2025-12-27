@@ -1,1 +1,1 @@
-webvidtrack : https://cx-banger-spleeter-i-afyg.bolt.host/
+bolt hosted : https://cx-banger-spleeter-i-afyg.bolt.host/
