@@ -10,6 +10,7 @@ const textCallout = document.querySelector(".callout");
 const textSub = document.querySelector(".subtitle");
 const wrappedLogo = document.querySelector(".wrapped-logo");
 const coverImage = document.querySelector(".cover-image");
+const artistNameCircle = document.querySelector(".artist-name-circle");
 const songTitle = document.querySelector(".song-title");
 const coverImage2 = document.querySelector(".cover-image-2");
 const songTitle2 = document.querySelector(".song-title-2");
@@ -102,7 +103,38 @@ function addItemsToTimeline() {
       5.5 // Timing d'apparition
     );
 
-    // Légère rotation pendant qu'ils sont visibles
+    // Animation du nom d'artiste circulaire (si présent)
+    if (artistNameCircle) {
+      // Apparition du nom circulaire en même temps que le cover
+      tl.fromTo(
+        artistNameCircle,
+        {
+          opacity: 0,
+          scale: 0.5
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "back.out(1.7)"
+        },
+        5.5 // Même timing que le cover
+      );
+
+      // Rotation continue du nom de l'artiste autour du cover
+      tl.to(
+        artistNameCircle,
+        {
+          rotation: 360,
+          duration: 8,
+          ease: "linear", // Vitesse constante
+          repeat: -1 // Répète à l'infini
+        },
+        5.5 // Commence dès l'apparition
+      );
+    }
+
+    // Légère rotation du cover et titre pendant qu'ils sont visibles
     tl.to(
       [coverImage, songTitle],
       {
@@ -115,7 +147,7 @@ function addItemsToTimeline() {
       ">"
     );
 
-    // Disparition du cover et du titre ensemble
+    // Disparition du cover et du titre
     tl.to(
       [coverImage, songTitle],
       {
@@ -125,8 +157,22 @@ function addItemsToTimeline() {
         duration: 1,
         ease: "power2.in"
       },
-      "+=2"
+      "+=0"
     );
+
+    // Disparition du nom circulaire (si présent)
+    if (artistNameCircle) {
+      tl.to(
+        artistNameCircle,
+        {
+          opacity: 0,
+          scale: 1.5,
+          duration: 1,
+          ease: "power2.in"
+        },
+        "<" // En même temps que le cover
+      );
+    }
   }
   // ===== FIN ANIMATION IMAGE ET TITRE =====
 
@@ -365,50 +411,85 @@ function addItemsToTimeline() {
     }
   });
 
-  // ===== ANIMATION DU DEUXIÈME COVER ET TITRE =====
+  // ===== ANIMATION DU DEUXIÈME COVER - STYLE BRAWL STARS =====
   if (coverImage2 && songTitle2) {
-    // Apparition du deuxième cover - ajustez le timing pour synchroniser
+    const startTime = 16; // AJUSTEZ CE NOMBRE pour synchroniser avec la mosaïque
+    
+    // ENTRÉE : Cover depuis la gauche, Titre depuis la droite
     tl.fromTo(
-      [coverImage2, songTitle2],
+      coverImage2,
       {
-        opacity: 0,
-        scale: 0.5,
-        rotation: -180
-      },
-      {
+        x: -window.innerWidth - 300, // Hors écran à gauche (largeur écran + largeur cover)
         opacity: 1,
         scale: 1,
-        rotation: 0,
-        duration: 1,
-        ease: "back.out(1.7)"
+        rotation: 0
       },
-      15.5 // AJUSTEZ CE NOMBRE : essayez 13, 14, 15, 16 jusqu'à ce que ça colle parfaitement
+      {
+        x: 0, // Position finale centrée (le CSS fait déjà translate(-50%, -50%))
+        duration: 0.8,
+        ease: "power2.out" // Ralentissement progressif
+      },
+      startTime
     );
 
-    // Légère rotation pendant qu'ils sont visibles
-    tl.to(
-      [coverImage2, songTitle2],
+    tl.fromTo(
+      songTitle2,
       {
-        rotation: 3,
-        duration: 2,
+        x: window.innerWidth + 300, // Hors écran à droite
+        opacity: 1
+      },
+      {
+        x: 0, // Position finale centrée
+        duration: 0.8,
+        ease: "power2.out" // Même vitesse que le cover
+      },
+      startTime // Même timing pour arriver ensemble
+    );
+
+    // IDLE : Mouvement subtil pendant l'affichage (oscillation douce)
+    tl.to(
+      coverImage2,
+      {
+        scale: 1.02,
+        duration: 1.5,
         ease: "sine.inOut",
         yoyo: true,
-        repeat: 2
+        repeat: 2 // Répète 2 fois l'oscillation
       },
       ">"
     );
 
-    // Disparition du deuxième cover
     tl.to(
-      [coverImage2, songTitle2],
+      songTitle2,
       {
-        opacity: 0,
-        scale: 1.5,
-        rotation: 180,
-        duration: 1,
-        ease: "power2.in"
+        y: "5px", // Légère oscillation verticale
+        duration: 1.5,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: 2
       },
-      "+=0"
+      "<" // Commence en même temps que l'oscillation du cover
+    );
+
+    // SORTIE : Repartent dans leur direction d'origine
+    tl.to(
+      coverImage2,
+      {
+        x: -window.innerWidth - 300, // Repart vers la gauche
+        duration: 0.8,
+        ease: "power2.in" // Accélération progressive
+      },
+      "+=10" // Petite pause avant de sortir
+    );
+
+    tl.to(
+      songTitle2,
+      {
+        x: window.innerWidth + 300, // Repart vers la droite
+        duration: 0.8,
+        ease: "power2.in" // Même accélération
+      },
+      "<" // Sort en même temps que le cover
     );
   }
   // ===== FIN ANIMATION DEUXIÈME COVER =====
